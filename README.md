@@ -1,18 +1,17 @@
 # SslTest
 
-To start your Phoenix app:
+A simple SSL test to show that  HTTPoison/Hackney is reusing the same session and not destroying a previous SSL session.
 
-  * Install dependencies with `mix deps.get`
-  * Start Phoenix endpoint with `mix phoenix.server`
+## Run the test
+Start up Phoenix App with:
+  * `mix phoenix.server`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Then run on another terminal the test:
+  * `mix test`
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+## What it does
+We create a very simple phoenix application with the required information for SSL connection.
 
-## Learn more
+The test just tries to make a HTTP request with an invalid key with a different certificate and with an incorrect key. The request seems to go through and the ssl options flag `reuse_sessions: false` doesn't help in this case
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: http://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+Note: Setup uses a valid user to show how the session is being reused

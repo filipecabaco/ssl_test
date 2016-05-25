@@ -8,7 +8,6 @@ defmodule SslTest.Router do
   scope "/api", SslTest do
     pipe_through :api
 
-    get "/", HttpsController, :test_get
-    post "/", HttpsController, :test_post
+    get "/test", HttpsController, :test_get
   end
 end
