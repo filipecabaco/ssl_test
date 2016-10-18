@@ -2,7 +2,6 @@ defmodule SslTest.Router do
   use SslTest.Web, :router
 
   pipeline :api do
-    plug :accepts, ["json"]
   end
 
   scope "/api", SslTest do
